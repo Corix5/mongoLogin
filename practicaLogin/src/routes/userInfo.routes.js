@@ -3,5 +3,7 @@ const router = Router();
 
 const { renderUserInfo } = require('../controllers/userInfo.controller');
 
-router.get('/userInfo', renderUserInfo);
+const {isAuthenticated} = require('../helpers/auth')
+
+router.get('/userInfo', isAuthenticated, renderUserInfo);
 module.exports = router;

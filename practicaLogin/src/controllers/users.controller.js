@@ -27,7 +27,7 @@ usersCtrl.signup = async (req, res) =>{
     } else {
          const emailUser = await User.findOne({email: correo});
          if(emailUser){
-            //  req.flash('error_msg', 'El correo ya está en uso');
+            req.flash('error_msg', 'El correo ya está en uso');
              res.redirect('/users/signup');
          } else{
                 const newUser = new User({name: nombre, email:correo, password: contrasena});
@@ -38,8 +38,9 @@ usersCtrl.signup = async (req, res) =>{
     }
 };
 
-usersCtrl.renderSigninForm = (req, res) => {
-    res.render("users/signin");
+usersCtrl.renderSigninForm = async (req, res) => {
+    const users = await User.findOne().lean();
+    res.render("users/signin", {users});
 };
 
 usersCtrl.signin = passport.authenticate('local', {
