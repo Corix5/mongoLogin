@@ -1,6 +1,11 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+const res = require('express/lib/response');
 const path = require('path');
+const methodOverride = require('method-override');
+const flash = require("connect-flash");
+const session = require('express-session');
+const { nextTick } = require('process');
 
 //inicializaciones
 const app = express();
@@ -18,9 +23,11 @@ app.set('view engine', '.hbs');
 
 //middlewares
 app.use(express.urlencoded({extended: false}));
+app.use(flash());
 
 //Variables Globales
-
+// res.locals.error_msg = req.flash('error_msg');
+// next();
 //Rutas
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/users.routes'));
