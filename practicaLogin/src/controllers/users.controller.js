@@ -38,9 +38,8 @@ usersCtrl.signup = async (req, res) =>{
     }
 };
 
-usersCtrl.renderSigninForm = async (req, res) => {
-    const users = await User.findOne().lean();
-    res.render("users/signin", {users});
+usersCtrl.renderSigninForm = (req, res) => {
+    res.render("users/signin");
 };
 
 usersCtrl.signin = passport.authenticate('local', {

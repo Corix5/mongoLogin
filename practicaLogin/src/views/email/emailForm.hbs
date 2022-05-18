@@ -2,18 +2,18 @@
         <div class="card">
             <div class="card-header">
                 <style>h1{text-align: center;}</style>
-                <h1>Registrar Cuenta</h1>
+                <h1>Recuperación de contraseña</h1>
             </div>
             <div class="card-body"></div>
 
             <div class="card-footer">
-                <form action="/users/signup" method="POST">
+                <form action="/email" method="POST">
                               
                     <div class="form-group">
                         <input type="email" name="correo" placeholder="Correo" value="{{correo}}" id="Correo" class="form-control" required>
                     </div>
                     
-                    <button class="btn btn-lg btn-primary"> <style> button{width: 100%;} </style> Crear Cuenta</button>
+                    <button class="btn btn-lg btn-primary"> <style> button{width: 100%;} </style> Enviar correo</button>
                     <br><br>     
                 </form>
             </div>

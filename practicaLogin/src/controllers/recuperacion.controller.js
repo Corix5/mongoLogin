@@ -35,4 +35,5 @@ recuperacionCtrl.updatePassword = async (req, res)=>{
     
 }
 
+
 module.exports = recuperacionCtrl;
