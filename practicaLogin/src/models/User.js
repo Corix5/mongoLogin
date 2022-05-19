@@ -1,6 +1,7 @@
 const {Schema, model} = require('mongoose');
 const bcrypt = require('bcryptjs');
 
+
 const userSchema = new Schema({
     name: {type: String, required: true},
     email: {type: String, required: true, unique: true},
@@ -15,7 +16,8 @@ userSchema.methods.encyptPassword = async password =>{
 };
 
 userSchema.methods.matchPassword = async function (password) {
+    console.log(this.password)
     return await bcrypt.compare(password, this.password);
 };
 
-module.exports = model("user", userSchema);
+module.exports = model("User", userSchema);

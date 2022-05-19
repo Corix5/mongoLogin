@@ -38,7 +38,8 @@ usersCtrl.signup = async (req, res) =>{
     }
 };
 
-usersCtrl.renderSigninForm = (req, res) => {
+usersCtrl.renderSigninForm = async (req, res) => {
+    // const users = await User.findOne().lean();
     res.render("users/signin");
 };
 

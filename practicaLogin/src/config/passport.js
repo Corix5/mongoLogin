@@ -6,10 +6,10 @@ const User = require('../models/User');
 passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
-}, async (username, password, done) => {
+}, async (email, password, done) => {
     
     //confirmar si el correo existe
-    const user = await User.findOne({username});
+    const user = await User.findOne({email});
     if(!user){
         return done(null, false, {message: 'No se encontró un usuario existente'});
     } else{
